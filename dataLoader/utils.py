@@ -164,7 +164,7 @@ def random_magnification(image: np.array, boxes: np.array):
     Perform hand magnificatioon in an image by multiplying a random number in range [1, MAX_MAGNIFICATION]
     by the pixel values in the hand region
 
-    Helps learning futher away values
+    Helps learning further away values
 
     :param img: np.array, Depth Image (1, h, w)
     :param boxes: np.array, bounding boxes of the objects
