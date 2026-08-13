@@ -36,8 +36,8 @@ def Criterion(pred: torch.tensor, ground_truth: torch.tensor, loss_type=const.LO
         "MSE" : mse_loss,
         "Logistic": logisitc_reg_loss,
     }
-    mas_loss = loss_switcher[loss_type]
-    mask_loss = mas_loss(pred[:,0:num_classes], ground_truth[:,0:num_classes])
+    mask_loss_fn = loss_switcher[loss_type]
+    mask_loss = mask_loss_fn(pred[:,0:num_classes], ground_truth[:,0:num_classes])
     # BBox Sizes
     size_loss_y = regression_loss(pred[:,-4], ground_truth[:,-4], ground_truth[:,0:num_classes])
     size_loss_x = regression_loss(pred[:,-3], ground_truth[:,-3], ground_truth[:,0:num_classes])
