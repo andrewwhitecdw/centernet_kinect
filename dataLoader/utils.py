@@ -331,7 +331,8 @@ def flip(image: np.array, boxes: np.array):
 
 def normalize(image: np.array):
     """
-    Resize image to (300, 300)
+    Normalize image by subtracting the mean and dividing by the standard deviation.
+    If the standard deviation is zero, it is set to 1 to avoid division by zero.
 
     :param image: numpy array
     :return: normalized image
