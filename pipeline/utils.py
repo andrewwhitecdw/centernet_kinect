@@ -71,7 +71,7 @@ def get_bboxes(yx_locations: torch.tensor, height: torch.tensor, width: torch.te
         :param offset_x: torch.tensor, The X offset value
         :param offst_y: torch.tensor, The Y offset value
         """
-        yx_locations *= stride
+        yx_locations = yx_locations * stride
         bboxes = []
         for i, yx_location in enumerate(yx_locations):
             y_center = yx_location[0].item() + offset_y[i].item()
