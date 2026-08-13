@@ -42,7 +42,7 @@ def get_model():
         print(f"\nThere are not check points at:\
                 \n{model_path}\
                 \nPlease Train a model or change the directory on constants.py\n")
-        exit -1
+        sys.exit(-1)
     return models[0]
 
 def get_image(model_setup: ModelSetup, train=False):
