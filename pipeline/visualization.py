@@ -10,12 +10,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 import os
 import sys
 import torch
-import random
 import argparse
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-
-from glob import glob
 
 # PROJ ROOT DIR
 DIR_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -28,8 +25,6 @@ import pipeline.constants as const
 from pipeline.utils import *
 from pipeline.setup import ModelSetup
 from model.run import Run_Inference
-
-# random.seed(42)
 
 def parse_arguments():
     """
