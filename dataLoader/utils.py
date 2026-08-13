@@ -140,9 +140,9 @@ def CreateHeatMap(img:np.array, bboxes:np.array, labels: np.array, img_shape=con
 
 def distort_image(image: np.array):
     """
-    Dirstort brightness, contrast
+    Distort brightness and contrast
 
-    :param img: np.array, Depth Image
+    :param image: np.array, Depth Image
     :return: np.array, Distorted Depth Image
     """
     def adjust_contrast(image: np.array):
