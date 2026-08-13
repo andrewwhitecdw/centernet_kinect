@@ -80,6 +80,8 @@ def pars_xml_file(xml_file):
     return ann_list
 
 def choose_random_split(lis, split=10):
+    if not (0 <= split <= 100):
+        raise ValueError("split must be a percentage between 0 and 100 inclusive")
     split_size = int(split * len(lis) / 100)
     zeros = np.zeros(len(lis))
     zeros[np.random.choice(len(lis), size=split_size, replace=False)] = 1
