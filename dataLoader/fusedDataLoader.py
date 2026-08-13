@@ -68,7 +68,7 @@ class FusedProjDataLoader(Dataset):
         ir_img_path = os.path.join(self.ir_img_dir_path, f"{img_num}")
 
         bboxes = np.array(img_annotation["boxes"], dtype=np.float32) # Boxes need to be casted into Numpy Float Array
-        labels = np.array(img_annotation["labels"], dtype=np.long) # Labels need to be casted into torch Long tensor
+        labels = np.array(img_annotation["labels"], dtype=np.int64) # Labels need to be casted into NumPy Int64 Array (compatible with torch Long tensor)
         depth_image = cv2.imread(depth_img_path, cv2.COLOR_BGR2GRAY).astype(np.uint16) # 16 bit unsigned integer values for an IR Image (H, W)
         ir_image = cv2.imread(ir_img_path, cv2.COLOR_BGR2GRAY).astype(np.uint16) # 16 bit unsigned integer values for an IR Image (H, W)
 
