@@ -53,10 +53,10 @@ def get_image(model_setup: ModelSetup, train=False):
     :param train: bool, weather or not to chose from the training dataset
     """
     if train:
-        idx = random.randint(0, model_setup.train_dataset.__len__())
+        idx = random.randrange(model_setup.train_dataset.__len__())
         image, ground_truth = model_setup.train_dataset.dataset[idx]
     else:
-        idx = random.randint(0, model_setup.valid_dataset.__len__())
+        idx = random.randrange(model_setup.valid_dataset.__len__())
         image, ground_truth = model_setup.valid_dataset.dataset[idx]
     return image.unsqueeze(0), ground_truth.unsqueeze(0)
 
