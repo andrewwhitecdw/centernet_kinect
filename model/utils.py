@@ -112,13 +112,11 @@ def logisitc_reg_loss(pred: torch.tensor, ground_truth_heatmap: torch.tensor,\
 
 def mse_loss(pred: torch.tensor, ground_truth_heatmap: torch.tensor):
     """
-    Logistic Regression Loss from Centernet Paper
+    Mean Squared Error Loss for heatmap regression.
 
     :param pred: torch.tensor, model prediction (N, Num_classes, 160, 160)
     :param ground_truth_heatmap: torch.tensor, ground truth (N, Num_classes, 160, 160)
-    :param alpha: int, constant defined in the paper
-    :param beta: int, constant defined in the paper
-    :return: logistic regression loss (regressing heatmaps)
+    :return: mean squared error loss
     """
 
     loss = torch.nn.MSELoss()
