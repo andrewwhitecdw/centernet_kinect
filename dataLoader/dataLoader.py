@@ -68,7 +68,7 @@ class ProjDataLoader(Dataset):
 
         bboxes = np.array(img_annotation["boxes"], dtype=np.float32) # Boxes need to be casted into Numpy Float Array
         labels = np.array(img_annotation["labels"], dtype=np.long) # Labels need to be casted into torch Long tensor
-        image = cv2.imread(img_path, cv2.COLOR_BGR2GRAY).astype(np.uint16) # 16 bit unsigned integer values for an IR Image (H, W)
+        image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED).astype(np.uint16) # 16 bit unsigned integer values for an IR Image (H, W)
 
         new_image, new_boxes, new_labels = Transform(image, bboxes, labels, self.train)
         new_image, output_tensor, new_boxes = CreateHeatMap(new_image, new_boxes, new_labels)
