@@ -200,8 +200,7 @@ def zoom_out(image: np.array, boxes: np.array):
     new_h = int(h*scale)
     new_w = int(w*scale)
 
-    filler = image.mean()
-    new_image = np.ones((new_h, new_w), dtype=np.float) * filler
+    new_image = np.full((new_h, new_w), image.mean(), dtype=np.float32)
 
     left = random.randint(0, new_w - w)
     right = left + w
