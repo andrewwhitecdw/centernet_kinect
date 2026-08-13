@@ -91,7 +91,7 @@ def logisitc_reg_loss(pred: torch.tensor, ground_truth_heatmap: torch.tensor,\
     # pos_inds = gt.eq(1).float()
     # neg_inds = gt.lt(1).float()
 
-    pos_inds = gt.gt(thresh).float() +  gt.eq(thresh).float()
+    pos_inds = gt.ge(thresh).float()
     neg_inds = gt.lt(thresh).float()
 
     # weights = gt[pos_inds.bool()].sum()
