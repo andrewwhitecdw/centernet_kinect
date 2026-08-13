@@ -80,11 +80,9 @@ def logisitc_reg_loss(pred: torch.tensor, ground_truth_heatmap: torch.tensor,\
     :param beta: int, constant defined in the paper
     :return: logistic regression loss (regressing heatmaps)
     """
-    p = pred
+    p = torch.clamp(pred, min=1e-3, max=.99)
     # p = torch.max_pool2d(pred, kernel_size=window_size, stride=1, padding=window_size//2)
     # p = ((pred == p) * (p > thresh)).float()
-    p[p.lt(1e-3)] = 1e-3
-    p[p.gt(.99)] = .99
 
     gt = ground_truth_heatmap
 
