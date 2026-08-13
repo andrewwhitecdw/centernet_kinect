@@ -39,7 +39,7 @@ class ModelSetup(object):
                     ir_img_dir_path=const.IR_IMG_DIR_PATH, depth_img_dir_path=const.DEPTH_IMG_DIR_PATH,\
                     num_classes=const.NUM_CLASSES, load=None, pretrained=True, batch_size=const.BATCH_SIZE,\
                     checkpoint_dir=const.CHECKPOINT_PATH, infer=False):
-        if infer and not os.path.isfile(load):
+        if infer and (load is None or not os.path.isfile(load)):
             print(f"no such file exists: {load}")
             exit(-1)
             
