@@ -42,7 +42,7 @@ def parse_arguments():
                         help="Set the full path to your trained model")
 
     parser.add_argument('-t', '--train',
-                        type=bool,
+                        action='store_true',
                         default=False,
                         help="Set to True to use training set for visulization")
 
