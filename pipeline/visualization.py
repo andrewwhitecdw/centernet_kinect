@@ -60,8 +60,9 @@ def draw_images(model_setup: ModelSetup, image: torch.tensor, ground_truth: torc
     """
     image = image.numpy()[0][0]
 
-    gt_heatmap = ground_truth[0][0:model_setup.num_classes].max(0)[0].float()
-    gt_mask = ground_truth[0][0:model_setup.num_classes].max(0)[0].eq(1)
+    gt_class_map = ground_truth[0][0:model_setup.num_classes].max(0)[0]
+    gt_heatmap = gt_class_map.float()
+    gt_mask = gt_class_map.eq(1)
     gt_yx_locations = torch.nonzero(gt_mask)
 
     gt_height = ground_truth[0][-4][gt_mask]
