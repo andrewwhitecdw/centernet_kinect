@@ -84,10 +84,11 @@ def Run_Model(model_setup: ModelSetup, train: bool):
 
 def Run_Inference(model_setup: ModelSetup, image: torch.tensor):
     """
-    Run either training or validation on the model
+    Run inference on a single image.
 
     :param model_setup: ModelSetup, model setup state
-    :param train: bool, run training or validation
+    :param image: torch.tensor, input image tensor
+    :return: model predictions
     """
     model_setup.model.to(DEVICE)
     model_setup.model.eval()
