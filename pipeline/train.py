@@ -31,7 +31,7 @@ def parse_arguments():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-r', '--resume',
-                        type=bool,
+                        action='store_true',
                         default=False,
                         help="Set to True for resuming training")
 
