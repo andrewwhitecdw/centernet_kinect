@@ -95,11 +95,14 @@ def choose_random_split(lis, split=10):
 
     return train, val
 
+def is_xml_filename(filename):
+    return os.path.splitext(filename)[1].lower() == ".xml"
+
 def main():
     args = parse_argument()
     annotations = list()
     for ann in os.listdir(args.annotation_path):
-        if "xml" in ann.lower():
+        if is_xml_filename(ann):
             ann_list = pars_xml_file(os.path.join(args.annotation_path, ann))
             for elem in ann_list:
                 annotations.append(elem)
